@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>我的名片</title>
+  <style>
+    * {
+      /*全局设置*/
+      box-sizing: border-box;
+    }
+
+    body {
+
+      height: 100vh;
+      background-color: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+
+    .card {
+      /* 这里的 flex 是为了竖着排里面的 h1, form, footer */
+      display: flex;
+      flex-direction: column;
+      /* justify-content: center;
+      align-items: center; */
+      /* 卡片的具体样子 */
+      background-color: wheat;
+      width: 350px;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-row {
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .input-box {
+      width: 200px;
+      padding: 5px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 10px;
+      background-color: #5eacffcf;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    .card-footer {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+
+    <header class="card-header">
+      <h1>联系我</h1>
+      <img src="https://img.icons8.com/color/96/000000/filled-sent.png" alt="Email Icon" class="icon">
+    </header>
+
+    <form action="#">
+      <div class="form-row">
+        <label for="name">姓名：</label>
+        <input type="text" id="name" class="input-box">
+      </div>
+
+      <div class="form-row">
+        <label for="qq">QQ ：</label>
+        <input type="text" id="qq" class="input-box">
+      </div>
+
+      <div class="form-row">
+        <label for="email">邮箱：</label>
+        <input type="text" id="email" class="input-box">
+      </div>
+
+      <button type="submit" class="btn">发送消息</button>
+    </form>
+
+    <footer class="card-footer">
+      <p>访问我的空间 &rarr; <a href="https://www.myplace.xx">www.myplace.xx</a></p>
+    </footer>
+
+  </div>
+  <script>
+    const btn = document.querySelector('.btn');
+    const username = document.querySelector('#name');
+    btn.addEventListener("click", function (event) {
+      event.preventDefault();
+      // if (username.value == '') {
+      //   alert("请输入你的名字！")
+      // } else {
+      //   console.log(`你好，${username.value}！消息已发送。`);
+      //   alert("发送成功！")
+      // }
+      if (username.value === '') {
+        alert("请输入你的名字！");
+        return;
+      }
+
+      // 发送请求给后端
+      fetch('http://localhost:3000/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        // 把数据打包成JSON
+        body: JSON.stringify({ name: username.value })
+      })
+
+        .then(response => response.json()) // 把服务器回传的数据包解压成JSON
+        .then(data => {
+          // 处理服务器回复
+          console.log("服务器回复说：", data);
+          if (data.success) {
+            alert(data.message);
+          } else {
+            alert("发送失败" + data.message);
+          }
+        })
+
+        .catch(error => {
+          console.log("发生错误，", error);
+          alert("无法连接到服务器！");
+        });
+    })
+  </script>
+
+</body>
+
+</html>
