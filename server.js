@@ -11,7 +11,7 @@ app.use(express.json()) // 允许服务器解析前端发来的JSON数据
 app.get('/api/test', (req, res) => {
   const mydata = {
     message: "连接成功！",
-    time: new Date.tolotoLocaleString(),
+    time: new Date.toLocaleString(),
     author: "C1ouD",
   };
   res.json(mydata);
