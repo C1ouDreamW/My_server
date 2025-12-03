@@ -27,7 +27,7 @@ const contactSchema = new mongoose.Schema({
 // 创建模型工具，用来操作数据库
 const Contact = mongoose.model('Contact', contactSchema);
 
-app.get('/', (req, res) => { console.log("哈喽，这是C1的第一个后端服务器！") });
+// app.get('/', (req, res) => { console.log("哈喽，这是C1的第一个后端服务器！") });
 
 // 路由1：测试接口
 app.get('/api/test', (req, res) => {
