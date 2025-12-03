@@ -27,4 +27,4 @@ app.post('/api/contact', (req, res) => {
   }
 })
 
-app.listen(port, () => { console.log(`服务器已启动！http://localhost:${port}`) });
+app.listen(port, () => { console.log(`服务器已启动！my-first-api-k6vk.onrender.com`) });
