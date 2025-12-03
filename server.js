@@ -8,7 +8,14 @@ app.use(cors()); // 允许跨域
 app.use(express.json()) // 允许服务器解析前端发来的JSON数据
 
 // 路由1：测试接口
-app.get('/api/test', (req, res) => { res.json({ message: '连接成功' }) });
+app.get('/api/test', (req, res) => {
+  const mydata = {
+    message: "连接成功！",
+    time: new Date.tolotoLocaleString(),
+    author: "C1ouD",
+  };
+  res.json(mydata);
+});
 
 // 路由2：接受前端提交的表单数据
 app.post('/api/contact', (req, res) => {
