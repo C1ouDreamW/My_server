@@ -4,6 +4,35 @@ const userid = document.querySelector('#id');
 const useremail = document.querySelector('#email');
 const usermessage = document.querySelector('#message');
 const messageBoard = document.querySelector('#message-board-content');
+
+// Toast提示
+/**
+ * @param {string} message - 要显示的文字
+ * @param {string} type - 类型：'success' (成功) 或 'error' (失败)
+ */
+function showToast(message, type = 'success') {
+  // 创建元素
+  const toast = document.createElement('div');
+  toast.className = `toast-message toast-${type}`;
+  const icon = type === 'success' ? '✅' : '❌';
+  toast.innerHTML = `<span>${icon}</span> <span>${message}</span>`;
+  document.body.appendChild(toast);
+
+  // 延迟加入 展示动画效果
+  requestAnimationFrame(() => {
+    toast.classList.add('show');
+  });
+
+  // 3秒后自动移除
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => {
+      document.body.removeChild(toast);
+    }, 500);
+  }, 3000);
+}
+
+// 发送消息
 btn.addEventListener("click", function (event) {
   event.preventDefault();
   if (username.value === '') {
@@ -35,17 +64,16 @@ btn.addEventListener("click", function (event) {
       // 处理服务器回复
       console.log("服务器回复说：", data);
       if (data.success) {
-        alert(data.message);
+        showToast("😽发送成功！即将上留言墙~", "success");
         usermessage.value = '';
         loadMessages();
       } else {
         alert("发送失败" + data.message);
       }
     })
-
     .catch(error => {
       console.log("发生错误，", error);
-      alert("无法连接到服务器！");
+      showToast('无法连接到服务器，请检查网络连接或联系管理员', 'error');
     });
 })
 
@@ -59,7 +87,7 @@ function loadMessages() {
     .then(response => response.json())
     .then(data => {
       if (data.length === 0) {
-        messageBoard.innerHTML = '<p>还没有人留言，快来抢沙发！</p>';
+        messageBoard.innerHTML = '<p>还没有人留言，快来当第一名吧！</p>';
         return;
       }
 
