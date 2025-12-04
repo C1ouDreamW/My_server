@@ -4,76 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <title>我的名片</title>
-  <style>
-    * {
-      /*全局设置*/
-      box-sizing: border-box;
-    }
-
-    body {
-
-      height: 100vh;
-      background-color: #f0f2f5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 0;
-    }
-
-    .card {
-      /* 这里的 flex 是为了竖着排里面的 h1, form, footer */
-      display: flex;
-      flex-direction: column;
-      /* justify-content: center;
-      align-items: center; */
-      /* 卡片的具体样子 */
-      background-color: wheat;
-      width: 350px;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .card-header {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .form-row {
-      display: flex;
-      justify-content: space-between;
-      text-align: center;
-      margin-bottom: 10px;
-    }
-
-    .input-box {
-      width: 200px;
-      padding: 5px;
-    }
-
-    .btn {
-      width: 100%;
-      padding: 10px;
-      background-color: #5eacffcf;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      margin-top: 10px;
-      cursor: pointer;
-    }
-
-    .card-footer {
-      margin-top: 20px;
-      text-align: center;
-      font-size: 12px;
-    }
-  </style>
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
 
   <div class="card">
-
     <header class="card-header">
       <h1>联系我</h1>
       <img src="https://img.icons8.com/color/96/000000/filled-sent.png" alt="Email Icon" class="icon">
@@ -95,66 +31,20 @@
         <input type="text" id="email" class="input-box">
       </div>
 
+      <div class="form-row">
+        <textarea id="message" class="input-box" placeholder="写点什么吧..."></textarea>
+      </div>
+
       <button type="submit" class="btn">发送消息</button>
     </form>
 
     <footer class="card-footer">
-      <p>验证后端api连通性 &rarr; <a
-          href="https://my-first-api-k6vk.onrender.com/api/test">https://my-first-api-k6vk.onrender.com/api/test</a></p>
+      <p>验证后端api连通性 &rarr; <a href="http://localhost:3000/api/test">https://my-first-api-k6vk.onrender.com/api/test</a>
+      </p>
     </footer>
-
   </div>
-  <script>
-    const btn = document.querySelector('.btn');
-    const username = document.querySelector('#name');
-    const userqq = document.querySelector('#qq');
-    const useremail = document.querySelector('#email');
-    btn.addEventListener("click", function (event) {
-      event.preventDefault();
-      if (username.value === '') {
-        alert("请输入你的名字！");
-        return;
-      }
-      if (userqq.value === '') {
-        alert("请输入你的QQ号！");
-        return;
-      }
-      if (useremail.value === '') {
-        alert("请输入你的邮箱！");
-        return;
-      }
 
-      // 发送请求给后端
-      fetch('https://my-first-api-k6vk.onrender.com/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        // 把数据打包成JSON
-        body: JSON.stringify({
-          name: username.value,
-          QQ: userqq.value,
-          email: useremail.value,
-        })
-      })
-
-        .then(response => response.json()) // 把服务器回传的数据包解压成JSON
-        .then(data => {
-          // 处理服务器回复
-          console.log("服务器回复说：", data);
-          if (data.success) {
-            alert(data.message);
-          } else {
-            alert("发送失败" + data.message);
-          }
-        })
-
-        .catch(error => {
-          console.log("发生错误，", error);
-          alert("无法连接到服务器！");
-        });
-    })
-  </script>
+  <script src="./js/scipt.js"></script>
 
 </body>
 
