@@ -27,5 +27,7 @@ mongoose.connect(mongoURI)
 // 凡是 contactRoutes 里定义的路径，前面都要自动加上 /api
 // 比如 contactRoutes 里的 '/test'，现在的访问路径是 '/api/test'
 app.use('/api', contactRoutes);
+// 这一步app.use()把请求URL的/api/前都给去除掉，只留api/后面的地址，
+// 然后传给contactRoutes在routes/contactRoutes.js里完成具体响应
 
 app.listen(port, () => { console.log(`服务器已启动！my-first-api-k6vk.onrender.com`) });
