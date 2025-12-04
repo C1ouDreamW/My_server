@@ -17,7 +17,9 @@ if (!mongoURI) {
   console.log("Error:未找到MONGO_URI环境变量，请检查.env...")
 }
 mongoose.connect(mongoURI)
+  // A.then() -> 等前面A完成之后，运行.then()括号内函数
   .then(() => console.log("成功连接到MongoDB数据库！"))
+  // A.catch() -> 如果A执行时出现了异常err，运行.catch()括号内的函数
   .catch(err => console.log("数据库连接失败:", err));
 
 // 注册路由
