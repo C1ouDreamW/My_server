@@ -3,6 +3,7 @@ const username = document.querySelector('#name');
 const userqq = document.querySelector('#qq');
 const useremail = document.querySelector('#email');
 const usermessage = document.querySelector('#message');
+const messageBoard = document.querySelector('#message-board-content');
 btn.addEventListener("click", function (event) {
   event.preventDefault();
   if (username.value === '') {
@@ -52,7 +53,7 @@ btn.addEventListener("click", function (event) {
 
 // 留言板部分
 
-const messageBoard = document.querySelector('#message-board');
+
 
 // 定义一个获取留言的函数
 function loadMessages() {
