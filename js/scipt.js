@@ -2,6 +2,7 @@ const btn = document.querySelector('.btn');
 const username = document.querySelector('#name');
 const userqq = document.querySelector('#qq');
 const useremail = document.querySelector('#email');
+const usermessage = document.querySelector('#message');
 btn.addEventListener("click", function (event) {
   event.preventDefault();
   if (username.value === '') {
@@ -28,6 +29,7 @@ btn.addEventListener("click", function (event) {
       name: username.value,
       QQ: userqq.value,
       email: useremail.value,
+      message: usermessage.value,
     })
   })
 
