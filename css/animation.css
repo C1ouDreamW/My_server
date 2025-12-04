@@ -1,0 +1,57 @@
+/* 针对宽屏采用横向动画效果 */
+@media(min-width:800px) {
+  .main-container {
+    display: block;
+    position: relative;
+    width: 350px;
+    height: auto;
+  }
+
+  #contact-panel {
+    position: relative;
+    z-index: 10;
+    background-color: wheat;
+  }
+
+  #message-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    height: 100%;
+
+    transform: translateX(60px) scale(0.95);
+    cursor: pointer;
+    opacity: 0.9;
+  }
+
+  #message-panel:hover {
+    transform: translateX(70px) scale(0.96);
+  }
+
+  #message-panel.open {
+    transform: translateX(100%) scale(1);
+    opacity: 1;
+    cursor: default;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .main-container:has(#message-panel:hover) #contact-panel {
+    transform: translateX(-10px);
+  }
+
+  .main-container:has(#message-panel.open) #contact-panel {
+    transform: translateX(-50px);
+
+    /* transform: translateX(-50px) rotateY(-360deg); */
+  }
+}
+
+.scroll-area::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scroll-area::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}

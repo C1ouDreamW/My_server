@@ -1,0 +1,156 @@
+/* 这里存css各小组件设置 */
+
+.card {
+  /* 这里的 flex 是为了竖着排里面的 h1, form, footer */
+  display: flex;
+  flex-direction: column;
+  background-color: wheat;
+  width: 350px;
+  max-width: 100%;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.card-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.input-box {
+  width: 200px;
+  margin-left: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+#message {
+  width: 100%;
+  height: 100px;
+  resize: vertical;
+  vertical-align: top;
+  min-height: 50px;
+  margin-left: 0px;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px 20px;
+  margin-top: 15px;
+  background: linear-gradient(135deg, #6abaff 0%, #4a90e2 100%);
+
+  color: white;
+  border: none;
+
+  /* 胶囊形状*/
+  border-radius: 50px;
+
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 2px;
+
+  box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.btn:hover {
+  background-color: #4a90e2;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+.card-footer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 12px;
+}
+
+/*留言板*/
+.scroll-area {
+  margin-top: 10px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+.msg-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 6px;
+  /* border-bottom: 1px dashed #eee; */
+  padding-bottom: 4px;
+}
+
+.msg-content {
+  color: #333;
+  line-height: 1.5;
+  word-break: break-all;
+}
+
+.msg-card {
+  padding-bottom: 5px;
+  border-bottom: 1px dashed #eee;
+  margin-bottom: 5px;
+}
+
+/* GitHub 按钮样式*/
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  background-color: #fff;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+
+  padding: 10px 20px;
+  border-radius: 50px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+}
+
+/* 鼠标悬停特效 */
+.github-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  color: #000;
+}
+
+.github-link img {
+  width: 20px;
+  height: 20px;
+}
+
+/* api测试连接 */
+.api-test-link {
+  font-size: 12px;
+  color: #888;
+}
+
+.api-test-link a {
+  color: #5eacffcf;
+  text-decoration: none;
+}
+
+.api-test-link a:hover {
+  text-decoration: underline;
+}

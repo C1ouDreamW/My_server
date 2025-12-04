@@ -1,0 +1,19 @@
+/* 这里存css基本c设置 */
+
+
+* {
+  /*全局设置*/
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 20px;
+  font-family: sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
