@@ -6,7 +6,7 @@ require('dotenv').config(); // 读取.env里的密码配置
 const contactRoutes = require('./routes/contactRoutes');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // 2.使用中间件
 app.use(cors()); // 允许跨域
