@@ -57,10 +57,20 @@ body {
   }
 
   #message-panel.open {
-    transform: translateX(105%) scale(1);
+    transform: translateX(100%) scale(1);
     opacity: 1;
     cursor: default;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .main-container:has(#message-panel:hover) #contact-panel {
+    transform: translateX(-10px);
+  }
+
+  .main-container:has(#message-panel.open) #contact-panel {
+    /* transform: translateX(-50px); */
+
+    transform: translateX(-50px) rotateY(-360deg);
   }
 }
 
