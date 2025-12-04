@@ -1,6 +1,6 @@
 // routes/contactRoutes.js
 
-const express = require()
+const express = require('express');
 const router = express.Router(); // 创建一个路由器实例
 const Contact = require('../models/Contact') // 引入数据库模型
 
