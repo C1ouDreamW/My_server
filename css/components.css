@@ -190,6 +190,49 @@ textarea.input-box {
   margin-top: 5px;
 }
 
+/* 留言板刷新按钮 */
+#refresh-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #888;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+
+  z-index: 10;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#refresh-btn:hover {
+  color: #4a90e2;
+  background-color: rgba(74, 144, 226, 0.1);
+}
+
+.spin {
+  animation: rotate 1s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* GitHub 按钮样式*/
 .github-link {
   display: inline-flex;
@@ -342,4 +385,90 @@ textarea.input-box {
 
 .toast-error {
   background: linear-gradient(135deg, #ff5f6d, #ffc371);
+}
+
+/* 中间切换按钮 */
+#toggle-panel-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+  background-color: #fff;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  color: #555;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+
+  margin: 0 10px;
+
+  flex-shrink: 0;
+}
+
+#toggle-panel-btn:hover {
+  background-color: #f0f0f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  color: #4a90e2;
+}
+
+#toggle-panel-btn .arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  font-family: monospace;
+  padding-bottom: 2px;
+}
+
+/* 留言板收回状态 */
+
+#close-sidebar-btn {
+  /* 1. 绝对定位：挂在留言板的左侧外面 */
+  position: absolute;
+  left: -30px;
+  /* 往左伸出去 30px */
+  top: 50%;
+  /* 垂直居中 */
+  transform: translateY(-50%);
+  /* 修正垂直居中 */
+
+  /* 2. 按钮外观：细长的把手或圆形 */
+  width: 30px;
+  height: 60px;
+  /* 长条形，像个门把手，容易点中 */
+
+  background-color: #fff;
+  /* 白色背景 */
+  border-radius: 10px 0 0 10px;
+  /* 左边圆角，右边直角贴合面板 */
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  /* 给左边加点阴影 */
+
+  /* 3. 内部图标居中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ccc;
+  font-size: 18px;
+  cursor: pointer;
+
+  /* 4. 层级设置 */
+  z-index: 20;
+  /* 保证能被点到 */
+
+  /* 动画 */
+  transition: all 0.3s ease;
+}
+
+/* 鼠标悬停变色 */
+#close-sidebar-btn:hover {
+  background-color: #f0f0f0;
+  color: #4a90e2;
+  width: 35px;
+  /* 稍微伸长一点，有互动感 */
+  left: -35px;
 }

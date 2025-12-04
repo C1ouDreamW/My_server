@@ -79,11 +79,9 @@ btn.addEventListener("click", function (event) {
 
 // 留言板部分
 
-
-
 // 定义一个获取留言的函数
 function loadMessages() {
-  fetch('https://my-first-api-k6vk.onrender.com/api/contact')
+  return fetch('https://my-first-api-k6vk.onrender.com/api/contact')
     .then(response => response.json())
     .then(data => {
       if (data.length === 0) {
@@ -124,11 +122,35 @@ loadMessages();
 
 const messagePanel = document.getElementById('message-panel');
 const contactPanel = document.getElementById('contact-panel');
+const closeSidebarBtn = document.getElementById('close-sidebar-btn');
 
 messagePanel.addEventListener('click', function () {
-  this.classList.toggle('open');
+  this.classList.add('open');
 });
 
-contactPanel.addEventListener('click', function () {
+// contactPanel.addEventListener('click', function () {
+//   messagePanel.classList.remove('open');
+// });
+
+// 展开/收回按钮
+closeSidebarBtn.addEventListener('click', function (e) {
+  // 因为这个按钮在 messagePanel 里面，不阻止的话，点击它会被当成点击面板，导致收起又立刻展开
+  e.stopPropagation();
+
   messagePanel.classList.remove('open');
 });
+
+// 刷新按钮逻辑
+const refreshBtn = document.getElementById('refresh-btn');
+
+refreshBtn.addEventListener('click', function () {
+  refreshBtn.classList.add('spin');
+  loadMessages()
+    .finally(() => {
+      setTimeout(() => {
+        refreshBtn.classList.remove('spin');
+        showToast('留言已刷新', 'success');
+      }, 500);
+    });
+});
+
