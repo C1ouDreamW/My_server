@@ -45,4 +45,15 @@ router.post('/contact', async (req, res) => {
   }
 })
 
+router.get('/contact', async (req, res) => {
+  try {
+    const messages = await Contact.find().sort({ date: -1 });
+    res.json(messages);
+  } catch (error) {
+    res.status(500).json({ message: `留言板数据获取失败，错误信息${error}` });
+  }
+
+
+})
+
 module.exports = router;

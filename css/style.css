@@ -5,12 +5,24 @@
 
 body {
 
-  height: 100vh;
+  min-height: 100vh;
   background-color: #f0f2f5;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0;
+  padding: 20px;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 900px;
 }
 
 .card {
@@ -20,6 +32,7 @@ body {
   /* 卡片的具体样子 */
   background-color: wheat;
   width: 350px;
+  max-width: 100%;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -39,6 +52,7 @@ body {
 
 .input-box {
   width: 200px;
+  margin-left: 10px;
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -55,6 +69,11 @@ body {
   border-radius: 5px;
   margin-top: 10px;
   cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: #4a90e2;
 }
 
 .card-footer {
@@ -69,4 +88,38 @@ body {
   resize: vertical;
   vertical-align: top;
   min-height: 50px;
+  margin-left: 0px;
+}
+
+/*留言板*/
+.scroll-area {
+  margin-top: 10px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+.scroll-area::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scroll-area::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.msg-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 6px;
+  border-bottom: 1px dashed #eee;
+  padding-bottom: 4px;
+}
+
+.msg-content {
+  color: #333;
+  line-height: 1.5;
+  word-break: break-all;
 }

@@ -8,42 +8,55 @@
 </head>
 
 <body>
+  <div class="main-container">
+    <div class="card">
+      <header class="card-header">
+        <h1>联系我</h1>
+        <img src="https://img.icons8.com/color/96/000000/filled-sent.png" alt="Email Icon" class="icon">
+      </header>
 
-  <div class="card">
-    <header class="card-header">
-      <h1>联系我</h1>
-      <img src="https://img.icons8.com/color/96/000000/filled-sent.png" alt="Email Icon" class="icon">
-    </header>
+      <form action="#">
+        <div class="form-row">
+          <label for="name">姓名：</label>
+          <input type="text" id="name" class="input-box">
+        </div>
 
-    <form action="#">
-      <div class="form-row">
-        <label for="name">姓名：</label>
-        <input type="text" id="name" class="input-box">
+        <div class="form-row">
+          <label for="qq">QQ ：</label>
+          <input type="text" id="qq" class="input-box">
+        </div>
+
+        <div class="form-row">
+          <label for="email">邮箱：</label>
+          <input type="text" id="email" class="input-box">
+        </div>
+
+        <div class="form-row">
+          <textarea id="message" class="input-box" placeholder="写点什么吧..."></textarea>
+        </div>
+
+        <button type="submit" class="btn">发送消息</button>
+      </form>
+
+      <footer class="card-footer">
+        <p>验证后端api连通性 &rarr; <a
+            href="https://my-first-api-k6vk.onrender.com/api/test">https://my-first-api-k6vk.onrender.com/api/test</a>
+        </p>
+      </footer>
+    </div>
+
+    <div class="card" id="message-panel">
+      <header class="card-header">
+        <h1>留言墙</h1>
+        <img src="https://img.icons8.com/color/96/000000/comments.png" alt="Comments Icon" class="icon">
+      </header>
+
+      <div id="message-board-content" class="scroll-area">
+        <p style="text-align:center; color:gray;">正在加载留言...</p>
       </div>
-
-      <div class="form-row">
-        <label for="qq">QQ ：</label>
-        <input type="text" id="qq" class="input-box">
-      </div>
-
-      <div class="form-row">
-        <label for="email">邮箱：</label>
-        <input type="text" id="email" class="input-box">
-      </div>
-
-      <div class="form-row">
-        <textarea id="message" class="input-box" placeholder="写点什么吧..."></textarea>
-      </div>
-
-      <button type="submit" class="btn">发送消息</button>
-    </form>
-
-    <footer class="card-footer">
-      <p>验证后端api连通性 &rarr; <a
-          href="https://my-first-api-k6vk.onrender.com/api/test">https://my-first-api-k6vk.onrender.com/api/test</a>
-      </p>
-    </footer>
+    </div>
   </div>
+
 
   <script src="./js/scipt.js"></script>
 

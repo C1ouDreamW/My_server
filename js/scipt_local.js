@@ -1,15 +1,20 @@
 const btn = document.querySelector('.btn');
 const username = document.querySelector('#name');
+const userqq = document.querySelector('#qq');
+const useremail = document.querySelector('#email');
+const usermessage = document.querySelector('#message');
 btn.addEventListener("click", function (event) {
   event.preventDefault();
-  // if (username.value == '') {
-  //   alert("请输入你的名字！")
-  // } else {
-  //   console.log(`你好，${username.value}！消息已发送。`);
-  //   alert("发送成功！")
-  // }
   if (username.value === '') {
     alert("请输入你的名字！");
+    return;
+  }
+  if (userqq.value === '') {
+    alert("请输入你的QQ号！");
+    return;
+  }
+  if (useremail.value === '') {
+    alert("请输入你的邮箱！");
     return;
   }
 
@@ -20,7 +25,12 @@ btn.addEventListener("click", function (event) {
       'Content-Type': 'application/json'
     },
     // 把数据打包成JSON
-    body: JSON.stringify({ name: username.value })
+    body: JSON.stringify({
+      name: username.value,
+      QQ: userqq.value,
+      email: useremail.value,
+      message: usermessage.value,
+    })
   })
 
     .then(response => response.json()) // 把服务器回传的数据包解压成JSON
@@ -39,3 +49,5 @@ btn.addEventListener("click", function (event) {
       alert("无法连接到服务器！");
     });
 })
+
+

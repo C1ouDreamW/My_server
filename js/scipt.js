@@ -18,7 +18,7 @@ btn.addEventListener("click", function (event) {
     return;
   }
 
-  // 发送请求给后端
+  // 发送数据包给后端
   fetch('https://my-first-api-k6vk.onrender.com/api/contact', {
     method: 'POST',
     headers: {
@@ -49,3 +49,48 @@ btn.addEventListener("click", function (event) {
       alert("无法连接到服务器！");
     });
 })
+
+// 留言板部分
+
+const messageBoard = document.querySelector('#message-board');
+
+// 定义一个获取留言的函数
+function loadMessages() {
+  fetch('https://my-first-api-k6vk.onrender.com/api/contacts')
+    .then(response => response.json())
+    .then(data => {
+      if (data.length === 0) {
+        messageBoard.innerHTML = '<p>还没有人留言，快来抢沙发！</p>';
+        return;
+      }
+
+      messageBoard.innerHTML = '';
+
+      data.forEach(msg => {
+        const card = document.createElement('div');
+        card.className = 'msg-card';
+
+        const time = new Date(msg.date).toLocaleString();
+
+        card.innerHTML = `
+            <div class="msg-header">
+                <strong>${msg.name}</strong> 
+                <span style="font-size:0.8em; color:#888;">(${time})</span>
+            </div>
+            <div class="msg-content">
+                ${msg.message || "这家伙很懒，什么都没写"} 
+            </div>
+            <div style="font-size: 0.8em; color: gray;">QQ: ${msg.QQ}</div>
+        `;
+
+        // 把卡片塞进留言板里
+        messageBoard.appendChild(card);
+      });
+    })
+    .catch(err => {
+      console.error(err);
+      messageBoard.innerHTML = '<p style="color:red">加载失败了...</p>';
+    });
+}
+
+loadMessages();
