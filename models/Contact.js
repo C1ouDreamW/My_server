@@ -2,7 +2,7 @@ const mongoose = require('mongoose') // 引入mongoose
 
 const contactSchema = new mongoose.Schema({
   name: String,
-  QQ: String,
+  ID: String,
   email: String,
   message: String,
   date: { type: Date, default: Date.now }

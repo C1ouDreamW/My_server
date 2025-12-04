@@ -1,6 +1,6 @@
 const btn = document.querySelector('.btn');
 const username = document.querySelector('#name');
-const userqq = document.querySelector('#qq');
+const userid = document.querySelector('#id');
 const useremail = document.querySelector('#email');
 const usermessage = document.querySelector('#message');
 const messageBoard = document.querySelector('#message-board-content');
@@ -10,12 +10,8 @@ btn.addEventListener("click", function (event) {
     alert("请输入你的名字！");
     return;
   }
-  if (userqq.value === '') {
-    alert("请输入你的QQ号！");
-    return;
-  }
-  if (useremail.value === '') {
-    alert("请输入你的邮箱！");
+  if (userid.value === '') {
+    alert("请输入你的ID！");
     return;
   }
 
@@ -28,7 +24,7 @@ btn.addEventListener("click", function (event) {
     // 把数据打包成JSON
     body: JSON.stringify({
       name: username.value,
-      QQ: userqq.value,
+      ID: userid.value,
       email: useremail.value,
       message: usermessage.value,
     })
@@ -83,7 +79,7 @@ function loadMessages() {
             <div class="msg-content">
                 ${msg.message || "这家伙很懒，什么都没写"} 
             </div>
-            <div style="font-size: 0.8em; color: gray;">QQ: ${msg.QQ}</div>
+            <div style="font-size: 0.8em; color: gray;">ID: ${msg.ID}</div>
         `;
 
         // 把卡片塞进留言板里

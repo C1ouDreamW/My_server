@@ -14,14 +14,14 @@ router.get('/test', (req, res) => {
 
 router.post('/contact', async (req, res) => {
   const receivedName = req.body.name
-  const receivedQQ = req.body.QQ
+  const receivedID = req.body.ID
   const receivedEmail = req.body.email
   const receivedMessage = req.body.message
   console.log("收到发来的名字：", receivedName);
   if (receivedName) {
     const newContact = new Contact({
       name: receivedName,
-      QQ: receivedQQ,
+      ID: receivedID,
       email: receivedEmail,
       message: receivedMessage,
     })
