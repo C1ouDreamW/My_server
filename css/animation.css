@@ -46,12 +46,3 @@
     /* transform: translateX(-50px) rotateY(-360deg); */
   }
 }
-
-.scroll-area::-webkit-scrollbar {
-  width: 6px;
-}
-
-.scroll-area::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
-}
