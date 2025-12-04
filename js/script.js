@@ -40,6 +40,8 @@ btn.addEventListener("click", function (event) {
       console.log("服务器回复说：", data);
       if (data.success) {
         alert(data.message);
+        usermessage.value = '';
+        loadMessages();
       } else {
         alert("发送失败" + data.message);
       }
