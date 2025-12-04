@@ -56,7 +56,7 @@ const messageBoard = document.querySelector('#message-board');
 
 // 定义一个获取留言的函数
 function loadMessages() {
-  fetch('https://my-first-api-k6vk.onrender.com/api/contacts')
+  fetch('https://my-first-api-k6vk.onrender.com/api/contact')
     .then(response => response.json())
     .then(data => {
       if (data.length === 0) {
