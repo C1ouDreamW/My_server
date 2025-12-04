@@ -4,6 +4,7 @@ const contactSchema = new mongoose.Schema({
   name: String,
   QQ: String,
   email: String,
+  message: String,
   date: { type: Date, default: Date.now }
 });
 
