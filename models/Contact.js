@@ -9,7 +9,7 @@ const contactSchema = new mongoose.Schema({
 });
 
 // 创建Schema实例，第一个参数为数据库表名，
-// 如存储在'contact'文件夹下
+// 如存储在'contacts'文件夹下
 // 数据类型为contactSchema
 const Contact = mongoose.model('Contact', contactSchema);
 
