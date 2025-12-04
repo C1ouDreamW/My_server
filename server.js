@@ -25,6 +25,10 @@ mongoose.connect(mongoURI)
   // A.catch() -> 如果A执行时出现了异常err，运行.catch()括号内的函数
   .catch(err => console.log("数据库连接失败:", err));
 
+app.get('/', (req, res) => {
+  res.send("哈喽，这是我的后端服务器，基于Node.js运行环境、Express框架，数据库使用MongoDB搭建  --  By C1ouD");
+})
+
 // 注册路由
 // 这里定义了公共前缀 '/api'
 // 凡是 contactRoutes 里定义的路径，前面都要自动加上 /api

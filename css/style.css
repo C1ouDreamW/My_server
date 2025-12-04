@@ -17,8 +17,6 @@ body {
   /* 这里的 flex 是为了竖着排里面的 h1, form, footer */
   display: flex;
   flex-direction: column;
-  /* justify-content: center;
-      align-items: center; */
   /* 卡片的具体样子 */
   background-color: wheat;
   width: 350px;
