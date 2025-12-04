@@ -29,12 +29,18 @@ app.get('/', (req, res) => {
   res.send("哈喽，这是我的后端服务器，基于Node.js运行环境、Express框架，数据库使用MongoDB搭建  --  By C1ouD");
 })
 
-// 注册路由
-// 这里定义了公共前缀 '/api'
-// 凡是 contactRoutes 里定义的路径，前面都要自动加上 /api
-// 比如 contactRoutes 里的 '/test'，现在的访问路径是 '/api/test'
+// 注册api路由
+// 这里定义了公共前缀 '/api' 凡是 contactRoutes 里定义的路径，前面都要自动加上 /api
 app.use('/api', contactRoutes);
-// 这一步app.use()把请求URL的/api/前都给去除掉，只留api/后面的地址，
-// 然后传给contactRoutes在routes/contactRoutes.js里完成具体响应
+// 这一步app.use()把请求URL的/api/前都给去除掉，只留api/后面的地址，然后传给contactRoutes在routes/contactRoutes.js里完成具体响应
+
+// 404
+app.use((req, res) => {
+  res.status(404).json({
+    code: 404,
+    message: "这是未定义的路由地址，这里什么都没有！",
+    path: req.path,
+  });
+});
 
 app.listen(port, () => { console.log(`服务器已启动！my-first-api-k6vk.onrender.com`) });
