@@ -1,7 +1,10 @@
 const express = require('express');
 const cors = require('cors'); // 1.引入cors
 const mongoose = require('mongoose') // 引入mongoose
-require('dotenv').config(); // 读取.env里的密码配置
+
+// 在本地运行时dotenv才会启用，调取.env中的变量
+// 在云端服务器运行时由于没有.env文件，dotenv会自动忽略
+require('dotenv').config(); // 读取.env里的键值对塞进内存的环境变量中
 
 const contactRoutes = require('./routes/contactRoutes');
 
