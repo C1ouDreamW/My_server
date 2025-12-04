@@ -97,3 +97,14 @@ function loadMessages() {
 }
 
 loadMessages();
+
+const messagePanel = document.getElementById('message-panel');
+const contactPanel = document.getElementById('contact-panel');
+
+messagePanel.addEventListener('click', function () {
+  this.classList.toggle('open');
+});
+
+contactPanel.addEventListener('click', function () {
+  messagePanel.classList.remove('open');
+});

@@ -4,7 +4,6 @@
 }
 
 body {
-
   min-height: 100vh;
   background-color: #f0f2f5;
   display: flex;
@@ -12,17 +11,57 @@ body {
   align-items: center;
   margin: 0;
   padding: 20px;
+  font-family: sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .main-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 30px;
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
   width: 100%;
   max-width: 900px;
+}
+
+@media(min-width:800px) {
+  .main-container {
+    display: block;
+    position: relative;
+    width: 350px;
+    height: auto;
+  }
+
+  #contact-panel {
+    position: relative;
+    z-index: 10;
+    background-color: wheat;
+  }
+
+  #message-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    height: 100%;
+
+    transform: translateX(60px) scale(0.95);
+    cursor: pointer;
+    opacity: 0.9;
+  }
+
+  #message-panel:hover {
+    transform: translateX(70px) scale(0.96);
+  }
+
+  #message-panel.open {
+    transform: translateX(105%) scale(1);
+    opacity: 1;
+    cursor: default;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
 }
 
 .card {
@@ -36,6 +75,7 @@ body {
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .card-header {
