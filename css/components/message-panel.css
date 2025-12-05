@@ -1,0 +1,155 @@
+/*留言板*/
+.scroll-area {
+  margin-top: 10px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 15px 10px 10px 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* 留言板的滚动条 */
+.scroll-area::-webkit-scrollbar {
+  width: 0px;
+}
+
+.scroll-area::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.msg-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed #f0f0f0;
+}
+
+.msg-header strong {
+  color: #333;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.msg-header span {
+  font-size: 12px;
+  color: #999;
+  /* 时间用浅灰色 */
+}
+
+.msg-content {
+  color: #444;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.msg-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 15px;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  border: none;
+
+  border-left: 5px solid #4a90e2;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.msg-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.msg-card>div:last-child {
+  font-size: 12px;
+  color: #bbb;
+  text-align: right;
+  margin-top: 5px;
+}
+
+/* 留言板刷新按钮 */
+#refresh-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #888;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+
+  z-index: 10;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#refresh-btn:hover {
+  color: #4a90e2;
+  background-color: rgba(74, 144, 226, 0.1);
+}
+
+.spin {
+  animation: rotate 1s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 留言板收回状态 */
+#close-sidebar-btn {
+  /* 1. 绝对定位：挂在留言板的左侧外面 */
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  /* 2. 按钮外观：细长的把手或圆形 */
+  width: 30px;
+  height: 60px;
+
+  background-color: #fff;
+  border-radius: 10px 0 0 10px;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+
+  /* 3. 内部图标居中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ccc;
+  font-size: 18px;
+  cursor: pointer;
+
+  /* 4. 层级设置 */
+  z-index: 20;
+
+  transition: all 0.3s ease;
+}
+
+/* 鼠标悬停变色 */
+#close-sidebar-btn:hover {
+  background-color: #f0f0f0;
+  color: #4a90e2;
+  width: 35px;
+  left: -35px;
+}

@@ -1,0 +1,14 @@
+/* api测试连接 */
+.api-test-link {
+  font-size: 12px;
+  color: #888;
+}
+
+.api-test-link a {
+  color: #5eacffcf;
+  text-decoration: none;
+}
+
+.api-test-link a:hover {
+  text-decoration: underline;
+}

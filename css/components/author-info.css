@@ -1,0 +1,69 @@
+/* 作者信息 */
+.author-info {
+  margin: 20px 0;
+  text-align: center;
+  color: #666;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+.credits-intro {
+  font-size: 12px;
+  margin-bottom: 5px;
+  opacity: 0.8;
+}
+
+.heartbeat {
+  display: inline-block;
+  animation: beat 1.2s infinite ease-in-out;
+}
+
+/* 爱心表情动效 */
+@keyframes beat {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.credits-names {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.credits-names .human {
+  color: #4a90e2;
+  padding: 2px 8px;
+  background-color: rgba(74, 144, 226, 0.1);
+  border-radius: 12px;
+}
+
+/* 连接符样式 */
+.credits-names .divider {
+  color: #bbb;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+/* AI名字样式 */
+.credits-names .ai {
+  color: #4a90e2;
+  padding: 2px 8px;
+  background-color: rgba(74, 144, 226, 0.1);
+  border-radius: 12px;
+}
+
+.copyright {
+  font-size: 11px;
+  color: #999;
+  margin: 0;
+}
