@@ -1,5 +1,5 @@
 const express = require('express');
-const cors = require('cors'); // 1.引入cors
+const cors = require('cors'); // 引入cors，解决前后端分离的跨域问题
 const mongoose = require('mongoose') // 引入mongoose
 
 // 在本地运行时dotenv才会启用，调取.env中的变量
@@ -11,7 +11,7 @@ const contactRoutes = require('./routes/contactRoutes');
 const app = express();
 const port = process.env.PORT || 3000;
 
-// 2.使用中间件
+// 使用中间件
 app.use(cors()); // 允许跨域
 app.use(express.json()) // 允许服务器解析前端发来的JSON数据
 
