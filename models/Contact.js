@@ -5,6 +5,7 @@ const contactSchema = new mongoose.Schema({
   ID: String,
   email: String,
   message: String,
+  isVisible: { type: Boolean, default: true },
   date: { type: Date, default: Date.now }
 });
 

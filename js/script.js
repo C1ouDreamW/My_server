@@ -4,6 +4,7 @@ const userid = document.querySelector('#id');
 const useremail = document.querySelector('#email');
 const usermessage = document.querySelector('#message');
 const messageBoard = document.querySelector('#message-board-content');
+const visibleCheck = document.querySelector('#visible-check');
 
 // Toast提示
 /**
@@ -56,6 +57,7 @@ btn.addEventListener("click", function (event) {
       ID: userid.value,
       email: useremail.value,
       message: usermessage.value,
+      isVisible: visibleCheck.checked,
     })
   })
 

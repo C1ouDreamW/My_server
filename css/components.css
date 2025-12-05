@@ -4,6 +4,7 @@
 @import url("./components/author-info.css");
 @import url("./components/github-link.css");
 @import url("./components/toast.css");
+@import url("./components/isVisible.css");
 /* 导入各组件 */
 
 /* 两个卡片的总样式 */

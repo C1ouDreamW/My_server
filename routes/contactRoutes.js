@@ -17,6 +17,7 @@ router.post('/contact', async (req, res) => {
   const receivedID = req.body.ID
   const receivedEmail = req.body.email
   const receivedMessage = req.body.message
+  const isVisible = req.body.isVisible
   console.log("收到发来的名字：", receivedName);
   if (receivedName) {
     const newContact = new Contact({
@@ -24,6 +25,7 @@ router.post('/contact', async (req, res) => {
       ID: receivedID,
       email: receivedEmail,
       message: receivedMessage,
+      isVisible: isVisible,
     })
     try {
       await newContact.save();
@@ -47,7 +49,7 @@ router.post('/contact', async (req, res) => {
 
 router.get('/contact', async (req, res) => {
   try {
-    const messages = await Contact.find().sort({ date: -1 });
+    const messages = await Contact.find({ isVisible: true }).sort({ date: -1 });
     res.json(messages);
     console.log("已向前端发送数据包。");
   } catch (error) {
