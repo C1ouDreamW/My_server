@@ -66,11 +66,15 @@ btn.addEventListener("click", function (event) {
       // 处理服务器回复
       console.log("服务器回复说：", data);
       if (data.success) {
-        showToast("😽发送成功！即将上留言墙~", "success");
+        if (visibleCheck.checked) {
+          showToast("😽发送成功！即将上墙~", "success");
+        } else {
+          showToast("😽发送成功！已悄悄投递给作者~", "success");
+        }
         usermessage.value = '';
         loadMessages();
       } else {
-        alert("发送失败" + data.message);
+        alert("发送失败" + data.message, 'error');
       }
     })
     .catch(error => {
